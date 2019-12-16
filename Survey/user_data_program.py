@@ -1,9 +1,10 @@
-+|from PyQt5.QtWidgets import QDialog, QApplication
+import sys
+from PyQt5.QtWidgets import QDialog, QApplication
 from user_data import *
 
 class myForm(QDialog):
-    # *                   Name  Gender  Age
-    result_data = [None, None  , None] 
+    # *          Name, Gender, Age
+    result_data = ['',   ''  , ''] 
     def __init__(self):
         super().__init__()
         self.ui = Ui_Dialog()
@@ -14,7 +15,6 @@ class myForm(QDialog):
         self.ui.kid.toggled.connect(self.dispmessage)
         self.ui.teenager.toggled.connect(self.dispmessage)
         self.ui.adult.toggled.connect(self.dispmessage)
-        self.dispmessage()
         self.show()
     
     def dispmessage(self):
@@ -32,30 +32,8 @@ class myForm(QDialog):
         if self.ui.adult.isChecked() :
             myForm.result_data[2] = 'adult'
     
-        print((myForm.result_data[0]))
-
-        if myForm.result_data[0]:
-            if ( not myForm.result_data[1] and not myForm.result_data[2] ):
-                self.ui.Result.setText('Hi ' + myForm.result_data[0])
-            elif ( myForm.result_data[1] and not myForm.result_data[2] ):
-                self.ui.Result.setText('Hi ' + myForm.result_data[0] + ',\n' + 'You are ' + myForm.result_data[1])
-            elif ( not myForm.result_data[1] and  myForm.result_data[2] ):
-                self.ui.Result.setText('Hi ' + myForm.result_data[0] + ',\n' + 'You are ' + myForm.result_data[2])
-            elif (  myForm.result_data[1] and  myForm.result_data[2] ):
-                self.ui.Result.setText('Hi ' + myForm.result_data[0] + ',\n' +\
-                     'You are ' + myForm.result_data[1] +\
-                         ' and ' + myForm.result_data[2] )
-        if not myForm.result_data[0]:
-            if ( myForm.result_data[1] and not myForm.result_data[2] ):
-                self.ui.Result.setText('You are ' + myForm.result_data[1])
-            elif ( not myForm.result_data[1] and  myForm.result_data[2] ):
-                self.ui.Result.setText('You are ' + myForm.result_data[2])
-            elif (  myForm.result_data[1] and  myForm.result_data[2] ):
-                self.ui.Result.setText('You are ' + myForm.result_data[1] + ' and ' + myForm.result_data[2] )
-
-        if myForm.result_data[1]:
-            self.ui.Result.setText('Hi ' + myForm.result_data[0])
-        
+        res = 'Name: ' + myForm.result_data[0] + '\nGender: ' + myForm.result_data[1] + '\nAge Group: ' + myForm.result_data[2]
+        self.ui.Result.setText(res)
         
 if __name__=="__main__":
     app = QApplication(sys.argv)
