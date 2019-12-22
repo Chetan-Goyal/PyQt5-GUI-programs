@@ -7,3 +7,5 @@ PROGRAMS INCLUDED-
 3. Survey
 4. Pizza Shop
 5. Copy Paste via Buttons
+6. Basic Calculator
+7. Interlinked Sliders,Scroll Bars and Spin Boxes
