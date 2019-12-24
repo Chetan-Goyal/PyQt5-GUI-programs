@@ -329,7 +329,7 @@
     <string>Edit</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="delete_all">
+  <widget class="QPushButton" name="Del_all">
    <property name="geometry">
     <rect>
      <x>480</x>
@@ -342,7 +342,7 @@
     <string>Delete All</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="delete_2">
+  <widget class="QPushButton" name="Del">
    <property name="geometry">
     <rect>
      <x>380</x>
