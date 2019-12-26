@@ -61,8 +61,6 @@ class myForm(QDialog):
 
         item = cart_item[:23] + '-> $ ' + cart_item.split()[-3]
         index = self.ui.CB.findText(item, Qt.MatchFixedString)
-        print(item)
-        print(index)
         if index >= 0:
             self.ui.CB.setCurrentIndex(index)
 
@@ -73,15 +71,22 @@ class myForm(QDialog):
         cart_item = self.ui.cart.currentItem().text().split()
         total_price = float(cart_item[-1])
 
-        self.ui.LCD_total.display( self.ui.LCD_total.value() - total_price )
-        self.ui.LCD_discount.display(self.ui.LCD_discount.value() - total_price*0.1 )
-        self.ui.LCD_to_pay.display(self.ui.LCD_to_pay.value() - total_price*0.9 )
+        total = round( self.ui.LCD_total.value() - total_price, 2)
+        discount = round(self.ui.LCD_discount.value() - total_price*0.1, 2)
+        to_pay = round(self.ui.LCD_to_pay.value() - total_price*0.9, 2)
 
         # setting quantity of current item in our dictionary to zero
-        myForm.cart_elements[self.ui.cart.currentItem().text()[0:24]] = 0
-
+        myForm.cart_elements[self.ui.cart.currentItem().text()[0:23]] = 0
+        
         # deleting current item from list
         self.ui.cart.takeItem( self.ui.cart.currentRow() )
+
+        # Updating values in all LCD
+        if self.ui.cart.count() == 0:
+            total = discount = to_pay = 0
+        self.ui.LCD_total.display(total)
+        self.ui.LCD_discount.display(discount)
+        self.ui.LCD_to_pay.display(to_pay)
 
 
     def cart_delete_all(self):
