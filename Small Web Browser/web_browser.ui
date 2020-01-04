@@ -6,27 +6,33 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>590</width>
-    <height>403</height>
+    <width>1023</width>
+    <height>576</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWebEngineView" name="widget" native="true">
+  <widget class="QWebEngineView" name="browser" native="true">
    <property name="geometry">
     <rect>
      <x>39</x>
      <y>79</y>
-     <width>521</width>
-     <height>291</height>
+     <width>961</width>
+     <height>471</height>
     </rect>
    </property>
+   <property name="minimumSize">
+    <size>
+     <width>961</width>
+     <height>0</height>
+    </size>
+   </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>330</x>
      <y>10</y>
      <width>521</width>
      <height>41</height>
@@ -41,10 +47,10 @@
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit"/>
+     <widget class="QLineEdit" name="UrlLineEdit"/>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="SubmitPushButton">
       <property name="text">
        <string>Go</string>
       </property>
