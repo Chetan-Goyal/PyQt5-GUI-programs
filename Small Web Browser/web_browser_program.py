@@ -9,11 +9,11 @@ class MyForm(QDialog):
         super().__init__()
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
-        self.ui.pushButtonGo.clicked.connect(self.dispSite)
+        self.ui.SubmitPushButton.clicked.connect(self.dispSite)
         self.show()
 
     def dispSite(self):
-        self.ui.widget.load(QUrl(self.ui.lineEditURL.text()))
+        self.ui.browser.load(QUrl(self.ui.UrlLineEdit.text()))
 
 
 if __name__=="__main__":
