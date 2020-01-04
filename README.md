@@ -17,3 +17,5 @@ PROGRAMS INCLUDED-
 13. Font_Choose
 14. Colour_Choose
 15. File Handling
+16. Small Web Browser
+17. Simple_login
